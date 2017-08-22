@@ -60,6 +60,32 @@ class Transaction(object):
         return m.digest()
     # end hash
 
+    # Serialize transaction
+    def serialize(self):
+        """
+        Serialize transaction
+        :return:
+        """
+        data = dict()
+
+        # Transaction ID
+        data['id'] = self._transaction_id
+
+        # Previous transaction id
+        data['previous'] = self._previous_transaction_id
+
+        # Count
+        data['count'] = self._count
+
+        # Signature
+        data['sign'] = str(self._signature)
+
+        # Destination
+        data['dest'] = str(self._destination)
+
+        return data
+    # end serialize
+
     #############################################
     # Override
     #############################################
